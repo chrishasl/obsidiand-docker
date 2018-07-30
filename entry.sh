@@ -1,3 +1,3 @@
 #!/bin/sh
-obsidiand -daemon
+/home/obsidian/obsidian-qt/src/obsidiand -daemon
 

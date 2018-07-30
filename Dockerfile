@@ -27,11 +27,9 @@ WORKDIR /home/obsidian
 RUN git clone https://github.com/obsidianplatform/Obsidian-QT.git obsidian-qt \
 	&& cd obsidian-qt/src \
 	&& NPROC=$(nproc) \
-	&& make -j$NPROC -f makefile.unix \
-	&& cp obsidiand /usr/bin/
+	&& make -j$NPROC -f makefile.unix
 
 # Add default conf
 ADD obsidian.conf /home/obsidian/.obsidian/
-
 
 CMD ["entry.sh"]
