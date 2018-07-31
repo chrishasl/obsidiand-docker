@@ -30,6 +30,6 @@ RUN git clone https://github.com/obsidianplatform/Obsidian-QT.git obsidian-qt \
 	&& make -j$NPROC -f makefile.unix
 
 # Add default conf
-ADD obsidian.conf /home/obsidian/.obsidian/
+ADD --chown=obsidian:obsidian obsidian.conf /home/obsidian/.obsidian/
 
 CMD ["entry.sh"]
