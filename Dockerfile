@@ -14,9 +14,9 @@ RUN apt-get install -y build-essential autoconf automake git g++ libtool make un
 # Install Libsodium
 RUN wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.14.tar.gz \
 	&& tar -xvzf libsodium-* \
-        && cd libsodium* \
+    && cd libsodium* \
 	&& ./configure \
-        && make && make check && make install && ldconfig
+    && make && make check && make install && ldconfig
 
 # Setup user
 RUN useradd -ms /bin/bash obsidian
