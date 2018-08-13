@@ -10,8 +10,11 @@ docker run -d odn-qt
 
 ## Commands
 ```
-docker exec odn-qt obsidiand getstakinginfo
+docker exec yourcontainerid obsidiand getstakinginfo
+# obsidiand walletpassphrase WALLET_PASSWORD <TIME_SECONDS> <STAKING=true>
+docker exec obsidiand walletpassphrase mrcoolguyjpeg123 999999 true
 ```
+
 
 
 @todo

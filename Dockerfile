@@ -11,19 +11,14 @@ RUN apt-get install -y build-essential autoconf automake git g++ libtool make un
 	libqt5webkit5 libqt5webkit5-dev libqt5qml5 libqt5quickwidgets5 qml-module-qt-labs-settings qtdeclarative5-dev-tools qttools5-dev-tools \
 	libboost-all-dev libssl-dev libdb++-dev libdb5.3++-dev libdb5.3-dev libminiupnpc-dev libqrencode-dev libprotobuf-dev
 
-# Install Libsodium
+# Install Libsodium from source
 RUN wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.14.tar.gz \
 	&& tar -xvzf libsodium-* \
     	&& cd libsodium* \
 	&& ./configure \
     	&& make && make check && make install && ldconfig
 
-# Setup user
-#RUN useradd -ms /bin/bash obsidian
-#USER obsidian
-#WORKDIR /home/obsidian
-
-# Install Obsidian
+# Install Obsidian from source
 RUN git clone https://github.com/obsidianplatform/Obsidian-QT.git obsidian-qt \
 	&& cd obsidian-qt/src \
 	&& NPROC=$(nproc) \
@@ -31,6 +26,7 @@ RUN git clone https://github.com/obsidianplatform/Obsidian-QT.git obsidian-qt \
 RUN cp /obsidian-qt/src/obsidiand /usr/bin
 
 # Add default conf
+VOLUME ["/root/.obsidian"]
 ADD obsidian.conf /root/.obsidian/
 
 CMD ["sh","-c","obsidiand"]
