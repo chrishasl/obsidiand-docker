@@ -2,16 +2,19 @@
 
 Easily provision a wallet on a VPS
 
-## Docker
+## Docker build and run
 ```
 docker build -t odn-qt .
 docker run -d odn-qt
 ```
 
-### Use
+## Commands
+```
+docker exec odn-qt obsidiand getstakinginfo
+```
 
-todo
 
+@todo
 ```
 docker exec encryptwallet SECRET_HERE
 docker exec getaccountaddress 0

@@ -14,22 +14,24 @@ RUN apt-get install -y build-essential autoconf automake git g++ libtool make un
 # Install Libsodium
 RUN wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.14.tar.gz \
 	&& tar -xvzf libsodium-* \
-    && cd libsodium* \
+    	&& cd libsodium* \
 	&& ./configure \
-    && make && make check && make install && ldconfig
+    	&& make && make check && make install && ldconfig
 
 # Setup user
-RUN useradd -ms /bin/bash obsidian
-USER obsidian
-WORKDIR /home/obsidian
+#RUN useradd -ms /bin/bash obsidian
+#USER obsidian
+#WORKDIR /home/obsidian
 
 # Install Obsidian
 RUN git clone https://github.com/obsidianplatform/Obsidian-QT.git obsidian-qt \
 	&& cd obsidian-qt/src \
 	&& NPROC=$(nproc) \
 	&& make -j$NPROC -f makefile.unix
+RUN cp /obsidian-qt/src/obsidiand /usr/bin
 
 # Add default conf
-ADD --chown=obsidian:obsidian obsidian.conf /home/obsidian/.obsidian/
+ADD obsidian.conf /root/.obsidian/
 
-CMD ["entry.sh"]
+CMD ["sh","-c","obsidiand"]
+
