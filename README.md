@@ -12,9 +12,9 @@ docker run --rm -d -v ~/odn-wallet/wallet.dat:/root/.obsidian/wallet.dat --name=
 
 ## Wallet setup
 ```
-docker exec odn-qt-wallet obsidiand encryptwallet YOUR_SECRET_PASS
+docker exec odn-qt-wallet obsidiand encryptwallet **YOUR_SECRET_PASS**
 ```
-(after encrypting the wallet obsidiand will automatically restart)
+(encrypting the wallet for the first time causes obsidiand to stop, and `docker run` ran again from the first step)
 
 
 ## Commands
