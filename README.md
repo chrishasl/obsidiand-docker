@@ -1,4 +1,6 @@
-# Obsidian QT wallet docker
+Obsidian QT wallet docker
+=========================
+[![Build Status](https://travis-ci.org/chrishasl/obsidian-qt-docker.svg?branch=master)](https://travis-ci.org/chrishasl/obsidian-qt-docker)
 
 Easily provision a wallet on a VPS
 
