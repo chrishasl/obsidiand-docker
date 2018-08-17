@@ -9,4 +9,4 @@ before_install:
   - docker run --rm -d -v ~/odn-wallet/wallet.dat:/root/.obsidian/wallet.dat --name=odn-qt-wallet odn-qt-wallet
 
 script:
-  - docker exec odn-qt-wallet obsidiand getstakinginfo
+#  - docker exec odn-qt-wallet obsidiand getstakinginfo
