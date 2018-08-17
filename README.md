@@ -5,7 +5,7 @@ Easily provision a wallet on a VPS
 ## Docker build and run
 ```
 docker build -t odn-qt .
-docker run -d -v ~/odn-wallet/wallet.dat:/root/.obsidian/wallet.dat odn-qt
+docker run --rm -d -v ~/odn-wallet/wallet.dat:/root/.obsidian/wallet.dat --name=odn odn-qt
 ```
 
 ## Wallet setup
@@ -18,16 +18,10 @@ docker exec CONTAINER_ID obsidiand encryptwallet YOUR_SECRET_PASS
 ## Commands
 Unlock your wallet for staking, 
 ```
-docker exec CONTAINER_ID obsidiand walletpassphrase YOUR_SECRET_PASS 999999 true
+docker exec odn obsidiand walletpassphrase YOUR_SECRET_PASS 999999 true
 ```
 
 Generate an ODN address
 ```
-docker exec CONTAINER_ID obsidiand getaccountaddress 0
+docker exec odn obsidiand getaccountaddress 0
 ```
-
-
-@todo
-docker exec name form via --name or docker-compose
-
-
