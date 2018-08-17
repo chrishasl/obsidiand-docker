@@ -30,4 +30,5 @@ VOLUME ["/root/.obsidian"]
 ADD obsidian.conf /root/.obsidian/
 
 CMD ["sh","-c","obsidiand"]
+EXPOSE 56660
 
