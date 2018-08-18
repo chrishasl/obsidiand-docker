@@ -13,5 +13,7 @@ script:
   - docker ps
   - docker ps -a
   - docker exec
-  - docker exec odn-qt-wallet w
+  - docker exec -ti odn-qt-wallet w
   - docker exec odn-qt-wallet obsidiand getstakinginfo
+  - sleep 5
+  - docker exec odn-qt-wallet w
