@@ -10,10 +10,11 @@ before_install:
 
 script:
   - docker version
-  - docker ps
   - docker ps -a
   - docker exec
   - docker exec -ti odn-qt-wallet w
   - docker exec odn-qt-wallet obsidiand getstakinginfo
   - sleep 5
+  - docker ps -a
   - docker exec odn-qt-wallet w
+  - sudo docker exec odn-qt-wallet w
