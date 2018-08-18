@@ -6,9 +6,10 @@ services:
 before_install:
   - git clone https://github.com/chrishasl/obsidian-qt-docker odn-qt-wallet
   - docker build -t odn-qt-wallet .
-  - docker run --privileged --rm -d -v ~/odn-wallet/wallet.dat:/root/.obsidian/wallet.dat --name=odn-qt-wallet odn-qt-wallet
+  - docker run --privileged -d -v ~/odn-wallet/wallet.dat:/root/.obsidian/wallet.dat --name=odn-qt-wallet odn-qt-wallet
 
 script:
+  - docker exec odn-qt-wallet obsidiand getstakinginfo
   - docker version
   - docker ps -a
   - docker exec
@@ -17,4 +18,5 @@ script:
   - sleep 5
   - docker ps -a
   - docker exec odn-qt-wallet w
-  - sudo docker exec odn-qt-wallet w
+  - docker exec odn-qt-wallet obsidiand getstakinginfo
+  - sudo docker exec odn-qt-wallet obsidiand getstakinginfo
