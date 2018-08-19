@@ -4,9 +4,14 @@ Obsidian QT wallet docker
 
 Easily provision an [Obsidian](https://obsidianplatform.com/) wallet on a VPS.
 
-## Docker build and run
+## Docker build and initial directory setup/sync
 ```
 docker build -t odn-qt-wallet .
+docker run --rm -d -v ~/odn-wallet/:/root/.obsidian/ --name=odn-qt-wallet odn-qt-wallet
+```
+
+## Run wallet
+```
 docker run --rm -d -v ~/odn-wallet/wallet.dat:/root/.obsidian/wallet.dat --name=odn-qt-wallet odn-qt-wallet
 ```
 
@@ -14,13 +19,11 @@ docker run --rm -d -v ~/odn-wallet/wallet.dat:/root/.obsidian/wallet.dat --name=
 ```
 docker exec odn-qt-wallet obsidiand encryptwallet **YOUR_SECRET_PASS**
 ```
-(encrypting the wallet for the first time causes obsidiand to stop, and `docker run` ran again from the first step)
-
 
 ## Commands
 Unlock your wallet for staking: 
 ```
-docker exec odn-qt-wallet obsidiand walletpassphrase YOUR_SECRET_PASS 999999 true
+docker exec odn-qt-wallet obsidiand walletpassphrase **YOUR_SECRET_PASS** 999999 true
 ```
 
 Generate an ODN address:
