@@ -27,7 +27,7 @@ RUN cp /obsidian-qt/src/obsidiand /usr/bin
 
 # Add default conf
 VOLUME ["/root/.obsidian"]
-ADD obsidian.conf /root/.obsidian/
+ADD conf/obsidian.conf /root/.obsidian/
 
 CMD ["sh","-c","obsidiand"]
 EXPOSE 56660
