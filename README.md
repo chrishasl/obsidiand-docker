@@ -2,7 +2,7 @@ obsidiand-docker
 ================
 [![Build Status](https://travis-ci.org/chrishasl/obsidian-qt-docker.svg?branch=master)](https://travis-ci.org/chrishasl/obsidian-qt-docker)
 
-Easily provision an [Obsidian](https://obsidianplatform.com/) wallet on a VPS.
+Easily provision [obsidiand](https://obsidianplatform.com/) using [Docker](https://www.docker.com/)
 
 ## Docker build and initial directory setup/sync
 ```
