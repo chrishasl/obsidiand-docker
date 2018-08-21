@@ -4,17 +4,17 @@ services:
   - docker
 
 before_install:
-  - git clone https://github.com/chrishasl/obsidian-qt-docker odn-qt-wallet
-  - docker build -t odn-qt-wallet .
-  - docker run --privileged --rm -d -v ~/odn-wallet/:/root/.obsidian/ --name=odn-qt-wallet odn-qt-wallet
+  - git clone https://github.com/chrishasl/obsidiand-docker obsidiand-docker
+  - docker build -t obsidiand-docker .
+  - docker run --privileged --rm -d -v ~/odn-wallet/:/root/.obsidian/ --name=obsidiand-docker obsidiand-docker
 
 script:
   - sleep 10
-  - docker run --rm -d -v ~/odn-wallet/wallet.dat:/root/.obsidian/wallet.dat --name=odn-qt-wallet odn-qt-wallet
+  - docker run --rm -d -v ~/odn-wallet/wallet.dat:/root/.obsidian/wallet.dat --name=obsidiand-docker obsidiand-docker
   - docker ps
   - docker ps -a
-  - docker exec -ti odn-qt-wallet w
-  - docker exec odn-qt-wallet obsidiand getstakinginfo
+  - docker exec -ti obsidiand-docker w
+  - docker exec obsidiand-docker obsidiand getstakinginfo
 
 after_success:
   - wget https://raw.githubusercontent.com/k3rn31p4nic/travis-ci-discord-webhook/master/send.sh
