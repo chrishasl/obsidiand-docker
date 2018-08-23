@@ -1,6 +1,6 @@
 obsidiand-docker
 ================
-[![Build Status](https://travis-ci.org/chrishasl/obsidian-qt-docker.svg?branch=master)](https://travis-ci.org/chrishasl/obsidian-qt-docker)
+[![Build Status](https://travis-ci.org/chrishasl/obsidiand-docker.svg?branch=master)](https://travis-ci.org/chrishasl/obsidiand-docker)
 
 Easily provision [obsidiand](https://obsidianplatform.com/) using [Docker](https://www.docker.com/)
 
